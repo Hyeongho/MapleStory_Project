@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="01. Engine">
+      <UniqueIdentifier>{35905e6f-0969-4a31-a3af-8ed372e2070e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Engine\01. Device">
+      <UniqueIdentifier>{3b50c76c-5aa1-4937-8500-6b6056613c31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Engine\02. Time">
+      <UniqueIdentifier>{1ba9b44e-dcbc-4549-87a2-0c13d84e9be5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Resource">
+      <UniqueIdentifier>{3e921da0-cbd0-4537-8aeb-3459baeabeea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Resource\01. HLSL">
+      <UniqueIdentifier>{6dead632-11fd-441e-a215-2d499b1f67db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Resource\02. Renderer">
+      <UniqueIdentifier>{88e5472d-b7c1-4434-b63e-8f6e4a25e833}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EngineInfo.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>01. Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Device.h">
+      <Filter>01. Engine\01. Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>01. Engine\02. Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Renderer\Renderer.h">
+      <Filter>02. Resource\02. Renderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Engine.cpp">
+      <Filter>01. Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Device.cpp">
+      <Filter>01. Engine\01. Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>01. Engine\02. Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Renderer\Renderer.cpp">
+      <Filter>02. Resource\02. Renderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Resource\HLSL\VertexShader.hlsl">
+      <Filter>02. Resource\01. HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="Resource\HLSL\PixelShader.hlsl">
+      <Filter>02. Resource\01. HLSL</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
