@@ -31,6 +31,9 @@
     <Filter Include="02. Resource\02. Renderer">
       <UniqueIdentifier>{88e5472d-b7c1-4434-b63e-8f6e4a25e833}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Engine\03. Core">
+      <UniqueIdentifier>{599589fa-20f2-47a9-ab70-0eb8d1c94de1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineInfo.h">
@@ -47,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="Resource\Renderer\Renderer.h">
       <Filter>02. Resource\02. Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedPointer.h">
+      <Filter>01. Engine\03. Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
