@@ -34,6 +34,21 @@
     <Filter Include="01. Engine\03. Core">
       <UniqueIdentifier>{599589fa-20f2-47a9-ab70-0eb8d1c94de1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03. Object">
+      <UniqueIdentifier>{4494b251-08bb-4309-81f3-9fe0c6534ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Actor">
+      <UniqueIdentifier>{8fbcdfd5-a0d2-48ca-bbfe-0aa8e88a13f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05. Component">
+      <UniqueIdentifier>{559497a7-6f35-4c26-8389-baae48c4aa6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05. Component\01. Transform">
+      <UniqueIdentifier>{f80f2a54-22aa-4495-9b00-47f6cd1c8123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Engine\04. Math">
+      <UniqueIdentifier>{2be17475-3a60-4145-a301-786d46ef470b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineInfo.h">
@@ -54,6 +69,24 @@
     <ClInclude Include="SharedPointer.h">
       <Filter>01. Engine\03. Core</Filter>
     </ClInclude>
+    <ClInclude Include="Cast.h">
+      <Filter>01. Engine\03. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Object.h">
+      <Filter>03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor\Actor.h">
+      <Filter>04. Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\Component.h">
+      <Filter>05. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\TransformComponent\TransformComponent.h">
+      <Filter>05. Component\01. Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineMath.h">
+      <Filter>01. Engine\04. Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -67,6 +100,18 @@
     </ClCompile>
     <ClCompile Include="Resource\Renderer\Renderer.cpp">
       <Filter>02. Resource\02. Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Object.cpp">
+      <Filter>03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor\Actor.cpp">
+      <Filter>04. Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\Component.cpp">
+      <Filter>05. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\TransformComponent\TransformComponent.cpp">
+      <Filter>05. Component\01. Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

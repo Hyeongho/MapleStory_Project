@@ -27,6 +27,11 @@
 #include <wrl.h>
 #include <fstream>
 
+#include "EngineMath.h"
+
+#include "SharedPointer.h"
+#include "Cast.h"
+
 #include <DirectXMath.h>
 
 #pragma comment(lib, "dwrite.lib")
