@@ -4,13 +4,17 @@
 
 #define	DIRECTINPUT_VERSION	0x0800
 
+#define NOMINMAX
+
 #include <Windows.h>
+#include <iostream>
 #include <vector>
 #include <list>
 #include <unordered_map>
 #include <crtdbg.h>
 #include <typeinfo>
 #include <string>
+#include <cmath>
 #include <functional>
 #include <algorithm>
 #include <stack>
@@ -27,15 +31,19 @@
 #include <wrl.h>
 #include <fstream>
 
+#include <DirectXMath.h>
+
+#pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "dxguid.lib")
+#pragma comment(lib, "d3dcompiler.lib")
+#pragma comment(lib, "dinput8.lib")
+#pragma comment(lib, "dwrite.lib")
+#pragma comment(lib, "d2d1.lib")
+
 #include "EngineMath.h"
 
 #include "SharedPointer.h"
 #include "Cast.h"
-
-#include <DirectXMath.h>
-
-#pragma comment(lib, "dwrite.lib")
-#pragma comment(lib, "d2d1.lib")
 
 using namespace Microsoft::WRL;
 

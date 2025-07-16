@@ -1,5 +1,4 @@
 #include "ClientManager.h"
-
 #include "Engine.h"
 
 DEFINITION_SINGLE(CClientManager)

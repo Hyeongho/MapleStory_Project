@@ -9,70 +9,67 @@ struct Vector2
     float y = 0.f;
 
     Vector2() = default;
-    Vector2(float xVal, float yVal) : x(xVal), y(yVal)
+    Vector2(float xVal, float yVal) : x(xVal), y(yVal) 
     {
 
     }
 
-    Vector2 operator+(const Vector2& other) const
-    {
-        return Vector2(x + other.x, y + other.y);
+    Vector2 operator+(const Vector2& other) const 
+    { 
+        return Vector2(x + other.x, y + other.y); 
     }
 
-    Vector2 operator-(const Vector2& other) const
-    {
-        return Vector2(x - other.x, y - other.y);
+    Vector2 operator-(const Vector2& other) const 
+    { 
+        return Vector2(x - other.x, y - other.y); 
     }
 
-    Vector2 operator*(float scalar) const
-    {
-        return Vector2(x * scalar, y * scalar);
+    Vector2 operator*(float scalar) const 
+    { 
+        return Vector2(x * scalar, y * scalar); 
     }
 
-    Vector2 operator/(float scalar) const
-    {
-        return Vector2(x / scalar, y / scalar);
+    Vector2 operator/(float scalar) const 
+    { 
+        return Vector2(x / scalar, y / scalar); 
     }
 
-    Vector2& operator+=(const Vector2& other)
-    {
-        x += other.x;
-        y += other.y;
-
-        return *this;
+    Vector2& operator+=(const Vector2& other) 
+    { 
+        x += other.x; 
+        y += other.y; 
+        return *this; 
     }
 
-    Vector2& operator-=(const Vector2& other)
-    {
-        x -= other.x;
-        y -= other.y;
-
-        return *this;
+    Vector2& operator-=(const Vector2& other) 
+    { 
+        x -= other.x; 
+        y -= other.y; 
+        return *this; 
     }
 
-    Vector2& operator*=(float scalar)
-    {
-        x *= scalar;
-        y *= scalar;
-        return *this;
+    Vector2& operator*=(float scalar) 
+    { 
+        x *= scalar; 
+        y *= scalar; 
+        return *this; 
     }
 
-    Vector2& operator/=(float scalar)
-    {
-        x /= scalar;
-        y /= scalar;
-
-        return *this;
+    Vector2& operator/=(float scalar) 
+    { 
+        x /= scalar; 
+        y /= scalar; 
+        return *this; 
     }
 
-    float Length() const
-    {
-        return std::sqrt(x * x + y * y);
+    float Length() const 
+    { 
+        return std::sqrtf(x * x + y * y);
     }
 
-    float LengthSquared() const
-    {
-        return x * x + y * y;
+    float LengthSquared() const 
+    { 
+        return x * x + y * y; 
     }
 
     void Normalize()
