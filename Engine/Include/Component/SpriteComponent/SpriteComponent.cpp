@@ -33,15 +33,15 @@ void CSpriteComponent::Render()
 {
     CRenderer* renderer = CEngine::GetInst()->GetRenderer();
 
-    if (!m_Texture || !m_Owner) 
-    {
-        return;
-    }
-
     // 텍스처가 있으면 DrawSprite 사용
     if (m_Texture)
     {
         Vector2 position;
+
+        if (!m_Owner)
+        {
+            return;
+        }
 
         auto transform = m_Owner->GetComponent<CTransformComponent>();
         if (transform)

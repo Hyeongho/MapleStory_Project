@@ -109,7 +109,7 @@ TSharedPtr<To> Cast(const TSharedPtr<From>& Object)
 
     if (IsA<To>(Object.Get()))
     {
-        return TSharedPtr<To>(Object, static_cast<To*>(Object.Get()));
+        return TSharedPtr<To>(Object.GetCounter(), static_cast<To*>(Object.Get()));
     }
 
     return TSharedPtr<To>(nullptr);

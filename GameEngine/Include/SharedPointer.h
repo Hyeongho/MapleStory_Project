@@ -97,8 +97,7 @@ public:
         Other.Counter = nullptr;
     }
 
-    template<typename U>
-    TSharedPtr(const TSharedPtr<U>& Other, T* CastedPtr) : Ptr(CastedPtr), Counter(Other.Counter)
+    TSharedPtr(RefCountBase* InCounter, T* CastedPtr) : Ptr(CastedPtr), Counter(InCounter)
     {
         if (Counter)
         {
@@ -200,6 +199,11 @@ public:
     operator bool() const
     {
         return Ptr != nullptr;
+    }
+
+    RefCountBase* GetCounter() const 
+    { 
+        return Counter; 
     }
 
     friend class TWeakPtr<T>;
