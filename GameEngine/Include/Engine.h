@@ -32,6 +32,12 @@ private:
 
     class CRenderer* m_Renderer;
 
+public:
+    class CRenderer* GetRenderer() const 
+    { 
+        return m_Renderer; 
+    }
+
     DECLARE_SINGLE(CEngine)
 };
 

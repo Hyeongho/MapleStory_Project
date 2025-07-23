@@ -12,3 +12,7 @@ void CObject::Destroy()
 void CObject::Tick(float DeltaTime)
 {
 }
+
+void CObject::Render()
+{
+}

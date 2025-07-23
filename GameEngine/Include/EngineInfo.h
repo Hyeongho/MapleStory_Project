@@ -96,3 +96,9 @@ struct alignas(16) Vertex
 	DirectX::XMFLOAT3 Position;
 	DirectX::XMFLOAT4 Color;
 };
+
+struct SpriteVertex
+{
+	DirectX::XMFLOAT3 Position;
+	DirectX::XMFLOAT2 UV;
+};

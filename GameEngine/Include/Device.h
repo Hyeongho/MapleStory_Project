@@ -2,6 +2,8 @@
 
 #include "EngineInfo.h"
 
+#include "Resource/Renderer/Renderer.h"
+
 class CDevice
 {
 private:

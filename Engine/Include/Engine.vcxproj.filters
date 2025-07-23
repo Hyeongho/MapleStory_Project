@@ -49,6 +49,12 @@
     <Filter Include="01. Engine\04. Math">
       <UniqueIdentifier>{2be17475-3a60-4145-a301-786d46ef470b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06. World">
+      <UniqueIdentifier>{7fcf66ef-66ca-42a3-9184-666f554ec969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05. Component\02. Sprite">
+      <UniqueIdentifier>{834f03fc-4d95-438f-aec4-5938b4a097b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineInfo.h">
@@ -87,6 +93,18 @@
     <ClInclude Include="EngineMath.h">
       <Filter>01. Engine\04. Math</Filter>
     </ClInclude>
+    <ClInclude Include="World\World.h">
+      <Filter>06. World</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Scene.h">
+      <Filter>06. World</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInstance.h">
+      <Filter>01. Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\SpriteComponent\SpriteComponent.h">
+      <Filter>05. Component\02. Sprite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -113,12 +131,30 @@
     <ClCompile Include="Component\TransformComponent\TransformComponent.cpp">
       <Filter>05. Component\01. Transform</Filter>
     </ClCompile>
+    <ClCompile Include="World\World.cpp">
+      <Filter>06. World</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Scene.cpp">
+      <Filter>06. World</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInstance.cpp">
+      <Filter>01. Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\SpriteComponent\SpriteComponent.cpp">
+      <Filter>05. Component\02. Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Resource\HLSL\VertexShader.hlsl">
       <Filter>02. Resource\01. HLSL</Filter>
     </FxCompile>
     <FxCompile Include="Resource\HLSL\PixelShader.hlsl">
+      <Filter>02. Resource\01. HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="Resource\HLSL\SpriteVertexShader.hlsl">
+      <Filter>02. Resource\01. HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="Resource\HLSL\SpritePixelShader.hlsl">
       <Filter>02. Resource\01. HLSL</Filter>
     </FxCompile>
   </ItemGroup>

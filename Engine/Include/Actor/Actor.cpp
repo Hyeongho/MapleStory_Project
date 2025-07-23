@@ -32,3 +32,16 @@ void CActor::Tick(float DeltaTime)
         }
     }
 }
+
+void CActor::Render()
+{
+    CObject::Render();
+
+    for (const auto& Component : m_Components)
+    {
+        if (IsValid(Component) && !Component->IsPendingDestroy())
+        {
+            Component->Render();
+        }
+    }
+}

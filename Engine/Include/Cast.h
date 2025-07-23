@@ -104,7 +104,7 @@ TSharedPtr<To> Cast(const TSharedPtr<From>& Object)
 {
     if (!Object)
     {
-        return nullptr;
+        return TSharedPtr<To>(nullptr);
     }
 
     if (IsA<To>(Object.Get()))
@@ -112,7 +112,7 @@ TSharedPtr<To> Cast(const TSharedPtr<From>& Object)
         return TSharedPtr<To>(Object, static_cast<To*>(Object.Get()));
     }
 
-    return nullptr;
+    return TSharedPtr<To>(nullptr);
 }
 
 // CastChecked: SharedPtr<T> 버전, 실패 시 assert

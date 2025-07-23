@@ -74,6 +74,10 @@ private:
 public:
     TSharedPtr() = default;
 
+    TSharedPtr(std::nullptr_t) : Ptr(nullptr), Counter(nullptr)
+    {
+    }
+
     explicit TSharedPtr(T* InPtr) : Ptr(InPtr), Counter(new RefCountBase)
     {
         InitializeWeakThis();
@@ -91,6 +95,15 @@ public:
     {
         Other.Ptr = nullptr;
         Other.Counter = nullptr;
+    }
+
+    template<typename U>
+    TSharedPtr(const TSharedPtr<U>& Other, T* CastedPtr) : Ptr(CastedPtr), Counter(Other.Counter)
+    {
+        if (Counter)
+        {
+            Counter->AddStrong();
+        }
     }
 
     ~TSharedPtr()
@@ -164,6 +177,16 @@ public:
         return *Ptr; 
     }
 
+    bool operator==(const TSharedPtr& Other) const
+    {
+        return Ptr == Other.Ptr;
+    }
+
+    bool operator!=(const TSharedPtr& Other) const
+    {
+        return Ptr != Other.Ptr;
+    }
+
     bool IsValid() const 
     { 
         return Ptr != nullptr; 
@@ -172,6 +195,11 @@ public:
     int UseCount() const 
     { 
         return Counter ? Counter->StrongCount : 0; 
+    }
+
+    operator bool() const
+    {
+        return Ptr != nullptr;
     }
 
     friend class TWeakPtr<T>;

@@ -87,6 +87,58 @@ bool CRenderer::Init()
         return false;
     }
 
+    // Sprite ¼ÎÀÌ´õ ·Îµù
+    std::vector<char> spriteVS, spritePS;
+    if (!LoadShaderFromFile("../Bin/SpriteVertexShader.cso", spriteVS)) 
+    {
+        return false;
+    }
+
+    if (!LoadShaderFromFile("../Bin/SpritePixelShader.cso", spritePS)) 
+    {
+        return false;
+    }
+
+    hr = device->CreateVertexShader(spriteVS.data(), spriteVS.size(), nullptr, m_SpriteVertexShader.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    hr = device->CreatePixelShader(spritePS.data(), spritePS.size(), nullptr, m_SpritePixelShader.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    D3D11_INPUT_ELEMENT_DESC spriteLayout[] =
+    {
+        { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,    0, sizeof(float) * 3, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+    };
+
+    hr = device->CreateInputLayout(spriteLayout, 2, spriteVS.data(), spriteVS.size(), m_SpriteInputLayout.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    D3D11_SAMPLER_DESC sampDesc = {};
+    sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+    sampDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+    sampDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+    sampDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
+
+    hr = device->CreateSamplerState(&sampDesc, m_SamplerState.GetAddressOf());
+
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
     return true;
 }
 
@@ -106,6 +158,49 @@ void CRenderer::Render()
     context->PSSetShader(m_PixelShader.Get(), nullptr, 0);
 
     context->Draw(3, 0);
+}
+
+void CRenderer::DrawSprite(ID3D11ShaderResourceView* texture, const Vector2& position, const Vector2& size)
+{
+    ID3D11DeviceContext* context = CDevice::GetInst()->GetContext();
+
+    float l = position.x;
+    float t = position.y;
+    float r = position.x + size.x;
+    float b = position.y + size.y;
+
+    SpriteVertex vertices[] = {
+        { { l, t, 0.f }, { 0.f, 0.f } },
+        { { r, b, 0.f }, { 1.f, 1.f } },
+        { { l, b, 0.f }, { 0.f, 1.f } },
+
+        { { l, t, 0.f }, { 0.f, 0.f } },
+        { { r, t, 0.f }, { 1.f, 0.f } },
+        { { r, b, 0.f }, { 1.f, 1.f } },
+    };
+
+    D3D11_BUFFER_DESC vbDesc = { sizeof(vertices), D3D11_USAGE_IMMUTABLE, D3D11_BIND_VERTEX_BUFFER };
+    D3D11_SUBRESOURCE_DATA vbData = { vertices };
+    ComPtr<ID3D11Buffer> vertexBuffer;
+    HRESULT hr = CDevice::GetInst()->GetDevice()->CreateBuffer(&vbDesc, &vbData, vertexBuffer.GetAddressOf());
+
+    if (FAILED(hr)) 
+    {
+        return;
+    }
+
+    UINT stride = sizeof(SpriteVertex);
+    UINT offset = 0;
+    context->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
+    context->IASetInputLayout(m_SpriteInputLayout.Get());
+    context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+    context->VSSetShader(m_SpriteVertexShader.Get(), nullptr, 0);
+    context->PSSetShader(m_SpritePixelShader.Get(), nullptr, 0);
+    context->PSSetShaderResources(0, 1, &texture);
+    context->PSSetSamplers(0, 1, m_SamplerState.GetAddressOf());
+
+    context->Draw(6, 0);
 }
 
 bool CRenderer::LoadShaderFromFile(const std::string& file, std::vector<char>& bytecode)

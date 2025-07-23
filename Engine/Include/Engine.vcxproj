@@ -151,25 +151,33 @@
     <ClInclude Include="Actor\Actor.h" />
     <ClInclude Include="Cast.h" />
     <ClInclude Include="Component\Component.h" />
+    <ClInclude Include="Component\SpriteComponent\SpriteComponent.h" />
     <ClInclude Include="Component\TransformComponent\TransformComponent.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineInfo.h" />
     <ClInclude Include="EngineMath.h" />
+    <ClInclude Include="GameInstance.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="Resource\Renderer\Renderer.h" />
     <ClInclude Include="SharedPointer.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="World\Scene.h" />
+    <ClInclude Include="World\World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor\Actor.cpp" />
     <ClCompile Include="Component\Component.cpp" />
+    <ClCompile Include="Component\SpriteComponent\SpriteComponent.cpp" />
     <ClCompile Include="Component\TransformComponent\TransformComponent.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameInstance.cpp" />
     <ClCompile Include="Object\Object.cpp" />
     <ClCompile Include="Resource\Renderer\Renderer.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="World\Scene.cpp" />
+    <ClCompile Include="World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Resource\HLSL\PixelShader.hlsl">
@@ -181,6 +189,22 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PSMain</EntryPointName>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PSMain</EntryPointName>
+    </FxCompile>
+    <FxCompile Include="Resource\HLSL\SpritePixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SPSMain</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Resource\HLSL\SpriteVertexShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SVSMain</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Resource\HLSL\VertexShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>

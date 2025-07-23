@@ -40,5 +40,7 @@ public:
     }
 
     virtual void Tick(float DeltaTime);
+    virtual void Render();
+
 };
 

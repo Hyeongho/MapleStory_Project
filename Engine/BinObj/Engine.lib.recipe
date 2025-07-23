@@ -6,6 +6,12 @@
       <FullPath>D:\MapleStory_Project\Engine\Bin\PixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>D:\MapleStory_Project\Engine\Bin\SpritePixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\MapleStory_Project\Engine\Bin\SpriteVertexShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>D:\MapleStory_Project\Engine\Bin\VertexShader.cso</FullPath>
     </ContentFile>
   </ContentFiles>

@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "Device.h"
 #include "Timer.h"
+#include "GameInstance.h"
 
 #include "Resource/Renderer/Renderer.h"
 
@@ -69,10 +70,12 @@ int CEngine::Run()
 
         else 
         {
-            // 추후 Update / Render
+            m_Timer->Update(); // 타이머 프레임 계산 (선택)
+
             CDevice::GetInst()->RenderStart();
 
-            m_Renderer->Render();
+            //CGameInstance::GetInst()->Update(m_Timer->GetDeltaTime()); // ← 선택 구현
+            CGameInstance::GetInst()->Render(); // ← Scene → Actor → SpriteComponent → 삼각형
 
             CDevice::GetInst()->Flip();
         }
