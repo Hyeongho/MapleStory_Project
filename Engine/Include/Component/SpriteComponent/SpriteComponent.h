@@ -17,6 +17,8 @@ private:
     Vector2 m_Size;
 
 public:
+    void LoadTextureFromFile(const std::string& filePath);
+
     void SetTexture(ID3D11ShaderResourceView* Tex);
     void SetPosition(const Vector2& Pos);
     void SetSize(const Vector2& Size);

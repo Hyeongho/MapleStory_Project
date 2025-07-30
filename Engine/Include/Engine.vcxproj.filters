@@ -105,6 +105,9 @@
     <ClInclude Include="Component\SpriteComponent\SpriteComponent.h">
       <Filter>05. Component\02. Sprite</Filter>
     </ClInclude>
+    <ClInclude Include="Resource\Renderer\DirectXTex.h">
+      <Filter>02. Resource\02. Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -157,5 +160,10 @@
     <FxCompile Include="Resource\HLSL\SpritePixelShader.hlsl">
       <Filter>02. Resource\01. HLSL</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Renderer\DirectXTex.inl">
+      <Filter>02. Resource\02. Renderer</Filter>
+    </None>
   </ItemGroup>
 </Project>

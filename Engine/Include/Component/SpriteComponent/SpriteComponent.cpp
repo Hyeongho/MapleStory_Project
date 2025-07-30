@@ -14,6 +14,18 @@ CSpriteComponent::~CSpriteComponent()
 {
 }
 
+void CSpriteComponent::LoadTextureFromFile(const std::string& filePath)
+{
+    CRenderer* renderer = CEngine::GetInst()->GetRenderer();
+
+    if (!renderer)
+    {
+        return;
+    }
+
+    //m_Texture = renderer->LoadTextureFromFile(filePath);
+}
+
 void CSpriteComponent::SetTexture(ID3D11ShaderResourceView* Tex)
 {
     m_Texture = Tex;

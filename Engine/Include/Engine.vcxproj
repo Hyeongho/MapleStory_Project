@@ -159,6 +159,7 @@
     <ClInclude Include="EngineMath.h" />
     <ClInclude Include="GameInstance.h" />
     <ClInclude Include="Object\Object.h" />
+    <ClInclude Include="Resource\Renderer\DirectXTex.h" />
     <ClInclude Include="Resource\Renderer\Renderer.h" />
     <ClInclude Include="SharedPointer.h" />
     <ClInclude Include="Timer.h" />
@@ -216,6 +217,9 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VSMain</EntryPointName>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VSMain</EntryPointName>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Renderer\DirectXTex.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

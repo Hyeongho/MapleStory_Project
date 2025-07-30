@@ -44,6 +44,18 @@
 
 #include "SharedPointer.h"
 #include "Cast.h"
+//#include "Resource/Renderer/DirectXTex.h"
+//#include "Resource/Renderer/DirectXTex.inl"
+
+#ifdef _DEBUG
+
+#pragma comment(lib, "DirectXTex_Debug.lib")
+
+#else
+
+#pragma comment(lib, "DirectXTex.lib")
+
+#endif // _DEBUG
 
 using namespace Microsoft::WRL;
 
